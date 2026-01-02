@@ -160,26 +160,6 @@ document.querySelector('a[href="#modules"]').addEventListener('click', (e) => {
    SISTEMA DE LOGIN (FRONT-END)
 ================================ */
 
-// Verifica se já está logado
-window.addEventListener('load', () => {
-    const user = localStorage.getItem('blacknode_user');
-    if (user) {
-        unlockDashboard(user);
-    }
-});
-
-function login() {
-    const userInput = document.getElementById('loginUser').value.trim();
-
-    if (userInput === "") {
-        alert("USER_ID inválido");
-        return;
-    }
-
-    localStorage.setItem('blacknode_user', userInput);
-    unlockDashboard(userInput);
-}
-
 function unlockDashboard(username) {
     // Atualiza nome
     document.getElementById('userNameDisplay').innerText = username.toUpperCase();
@@ -218,4 +198,46 @@ function showSection(sectionId) {
     } else {
         console.error('Seção não encontrada:', sectionId);
     }
+}
+
+/* ===============================
+   SISTEMA DE LOGIN – BLACKNODE
+   USER: Nero
+   PASS: hacking
+================================ */
+
+window.addEventListener('load', () => {
+    const user = localStorage.getItem('blacknode_user');
+    if (user) unlockDashboard(user);
+});
+
+function login() {
+    const user = document.getElementById('loginUser').value.trim();
+    const pass = document.getElementById('loginPass').value.trim();
+
+    if (user !== "Nero" || pass !== "hacking") {
+        alert("ACESSO NEGADO");
+        return;
+    }
+
+    localStorage.setItem('blacknode_user', user);
+    unlockDashboard(user);
+}
+
+function unlockDashboard(username) {
+    document.getElementById('userNameDisplay').innerText = username;
+
+    const nav = document.getElementById('navMenu');
+    nav.innerHTML = `
+        <li><a href="#" onclick="showSection('dashboard')">/DASHBOARD</a></li>
+        <li><a href="#" onclick="showSection('root')">/ROOT</a></li>
+        <li><a href="#" onclick="logout()" class="btn-login">LOGOUT</a></li>
+    `;
+
+    showSection('dashboard');
+}
+
+function logout() {
+    localStorage.removeItem('blacknode_user');
+    location.reload();
 }

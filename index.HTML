@@ -129,9 +129,9 @@ ab -n 1000 -c 100 http://alvo-teste.local/
         <div class="container">
             <div class="login-box">
                 <h2 class="hacker-hover" data-value="IDENTIFIQUE-SE">IDENTIFIQUE-SE</h2>
-                <input type="text" placeholder="USER_ID" class="hacker-input">
-                <input type="password" placeholder="PASS_HASH" class="hacker-input">
-                <button class="btn-primary" style="width:100%">INVASÃO NO SISTEMA</button>
+                <input type="text" id="loginUser" placeholder="USER_ID" class="hacker-input">
+                <input type="password" id="loginPass" placeholder="PASS_HASH" class="hacker-input">
+                <button class="btn-primary" style="width:100%" onclick="login()">INVASÃO NO SISTEMA</button>
             </div>
         </div>
     </section>
@@ -220,3 +220,4 @@ ab -n 1000 -c 100 http://alvo-teste.local/
     <script src="z.js"></script>
 </body>
 </html>
+
